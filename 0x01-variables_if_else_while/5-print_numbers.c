@@ -8,8 +8,8 @@
 int main(void)
 {
 	int numbers = 0;
-	
-	while (numbers <10)
+
+	while (numbers < 10)
 	{
 		printf("%d", numbers);
 		numbers++;
