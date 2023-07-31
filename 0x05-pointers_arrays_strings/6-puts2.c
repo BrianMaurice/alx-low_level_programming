@@ -2,7 +2,7 @@
 
 /**
  * puts2 - prints every character that is divisible by 2
- * @str - passes string to be printed
+ * @str: passes string to be printed
  * Return: Nothing
  */
 void puts2(char *str)
