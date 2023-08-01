@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 /**
- * strncmp - Compares two strints within bytes.
+ * _strncmp - Compares two strints within bytes.
  * @s1: string to check
  * @s2: string to check from
  * @b: number of bytes to check
