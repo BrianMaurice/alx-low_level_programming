@@ -1,4 +1,8 @@
 #include "main.h"
+/**
+ * main - tests puts
+ * Return: Always 0.
+ */
 
 int main(void)
 {
