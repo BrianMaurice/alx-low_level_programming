@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	int result, i;
 
 	result = 0;
-	if (checker(argc, 1, 0, argv) == 1)
+	if (checker(argc, 1, 0, *argv[]) == 1)
 	{
 		printf("Error\n");
 		return (1);
