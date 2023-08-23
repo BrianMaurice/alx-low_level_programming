@@ -1,42 +1,68 @@
 #include <stdio.h>
-#include <ctype.h>
 #include <stdlib.h>
-#include <string.h>
 /**
- * checker - checks for valid input
- * @argc: argument count
- * @i: counter for argv[]
- * @j: counter for argv[][]
- * @argv: argument vector
- * Return: 0 on success, 1 on failure
+ * is_positive_integer - checks whether a character is a positive integer
+ * @str: pointer to a string of characters
+ * Return: 0 if number is less thatn 0 or if number is greater than 9
  */
-int checker(int argc, int i, unsigned int j, char *argv[])
+int is_positive_integer(const char *str)
 {
-	for (i = 1; i <= argc; i++)
-		for (j = 0; argv[i] != '\0' && j < strlen(argv[i]); j++)
-			if (isdigit(argv[i][j]) == 0)
-				return (1);
-	return (0);
+	while (*str)
+	{
+		if (*str < '0' || *str > '9')
+		{
+			return (0);
+		}
+		str++;
+	}
+	return (1);
 }
 /**
- * main - adds all arguments if they are digits.
- * @argc: argument count only accepts ints separated by spaces.
- * @argv: argument vector
- * Return: 0 on success, 1 on failure
+ * custom_atoi - converts charater to integer
+ * @str: pointer to a string
+ * Return: result
+ */
+int custom_atoi(const char *str)
+{
+	int result = 0;
+
+	while (*str)
+	{
+		result = result * 10 + (*str - '0');
+		str++;
+	}
+	return (result);
+}
+/**
+ * main - adds the integers and prints result
+ * @argc: counter to arguments entered
+ * @argv: array containing arguments
+ * Return: 0 when true and 1 when an error occurs
  */
 int main(int argc, char *argv[])
 {
-	int result, i;
+	int sum = 0;
+	int i;
 
-	result = 0;
-	if (checker(argc, 1, 0, *argv[]) == 1)
+	if (argc == 1)
 	{
-		printf("Error\n");
-		return (1);
+		printf("0\n");
+		return (0);
 	}
 	for (i = 1; i < argc; i++)
-		result += atoi(argv[i]);
-	printf("%d\n", result);
+	{
+		if (is_positive_integer(argv[i]))
+		{
+			sum += custom_atoi(argv[i]);
+		}
+		else
+		{
+			printf("Error\n");
+			return (1);
+		}
+	}
+
+	printf("%d\n", sum);
 	return (0);
 }
 
